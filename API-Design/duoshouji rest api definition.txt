@@ -37,7 +37,7 @@ API 04: Send Login Verification Code
 API 05: List Square Notes
   Request URL: /notes
   Request Method: GET
-  Request Parameters: filter=[MARKED,LOCATION], categoryId=
+  Request Parameters: filter=[MARKED,(xx.xxxx,xx.xxxx)], categoryId=
   Request Headers: X-App-Token:
   Response Status: 200
   Response Header: NULL
