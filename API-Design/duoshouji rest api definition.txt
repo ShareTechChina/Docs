@@ -1,35 +1,39 @@
 API 01: Credential Login
   Request URL: /login/authenticate/credential
-  Request Method: GET  
+  Request Method: POST  
   Request Parameters: mobile=,password=
   Request Headers: NULL
   Response Status: 200
   Response Header: X-App-Token:
-  Response Body: {success: "true", mobile: "true", password: "true"}
-
-API 02: Verification Login
+  Response Body: {resultCode: [number], resultValue: {}}
+				 /*
+				 1. success
+				 2. user not exists
+				 3. password is not correct
+				 */
+API 02: Verification Code Login
   Request URL: /login/authenticate/verification-code
-  Request Method: GET
+  Request Method: POST
   Request Parameters: mobile=,code=
   Request Headers: NULL
   Response Status: 200
   Response Header: X-App-Token:
-  Response Body: {success: "true"}
+  Response Body: {success: [true,false]}
 
 API 03: Token Login
   Request URL: /login/authenticate/token
-  Request Method: GET
+  Request Method: POST
   Request Parameters: NULL
   Request Headers: X-App-Token:
   Response Status: 200
   Response Header: NULL
-  Response Body: {success: "true"}
+  Response Body: {success: [true,false]}
 
 API 04: Send Login Verification Code
   Request URL: /message/verification-code
   Request Method: POST
   Request Parameters: mobile=,purpose=[LOGIN,CHANGE_PASSWORD]
-  Request Headers: NULL
+  Request Headers: [required when change password]
   Response Status: 200
   Response Header: NULL
   Response Body: NULL
@@ -37,7 +41,7 @@ API 04: Send Login Verification Code
 API 05: List Square Notes
   Request URL: /notes
   Request Method: GET
-  Request Parameters: filter=[MARKED,(xx.xxxx,xx.xxxx)], categoryId=
+  Request Parameters: filter=[ALL,MARKED,LOCATION], tagId=, refreshTime=, lastNoteId=, pageSize=
   Request Headers: X-App-Token:
   Response Status: 200
   Response Header: NULL
@@ -47,51 +51,42 @@ API 05: List Square Notes
 	  noteId: [number]
 	  title: [string]
 	  image: [image url]
+	  imageWidth: [number]
+	  imageHeight [number]
 	  portrait: [image url]
 	  rank: [0 ~ 10]
 	  likeCount: [number]
 	  commentCount: [number]
-	  listPrice: [number(yuan)]
-	  discountPrice: [number(yuan)]
 	}
 	...
 	]
 
 API 06: Check Note Updates
-  Request URL: /accounts/${account-id}/message/notes/updates
+  Request URL: /accounts/${account-id}/message/updates/summary
   Request Method: GET
-  Request Parameters: 
+  Request Parameters: refreshTime=,
   Request Headers: X-App-Token:
   Response Status: 200
   Response Header: NULL
-  Response Body: {updates: [number]}
+  Response Body:
+    {
+	  notes: [number]
+	  transactions: [number]
+	  connections: [number]
+	  comments: [number]
+    }
 
-API 07: Check Transaction Updates
-  Request URL: /accounts/${account-id}/message/transactions/updates
+API 07: Check Note Updates Details
+  Request URL: /accounts/${account-id}/message/updates/${messageType}
   Request Method: GET
-  Request Parameters: 
+  Request Parameters: refreshTime=, 
   Request Headers: X-App-Token:
   Response Status: 200
   Response Header: NULL
-  Response Body: {updates: [number]}
-
-API 08: Check Connection Updates
-  Request URL: /accounts/${account-id}/message/connections/updates
-  Request Method: GET
-  Request Parameters: 
-  Request Headers: X-App-Token:
-  Response Status: 200
-  Response Header: NULL
-  Response Body: {updates: [number]}
-
-API 09: Check Comment Updates
-  Request URL: /accounts/${account-id}/message/comments/updates
-  Request Method: GET
-  Request Parameters: 
-  Request Headers: X-App-Token:
-  Response Status: 200
-  Response Header: NULL
-  Response Body: {updates: [number]}
+  Response Body:
+    {
+	  data: [{}...]
+    }
 
 API 10: Get User Home Page
   Request URL: /accounts/${account-id}/home
@@ -127,6 +122,8 @@ API 11: List User Notes
 	  portrait: [image url]
 	  publishTime: [number/epoch seconds]
 	  image: [image url]
+	  imageHeight: [number]
+	  imageWidth: [number]
 	  title: [string]
 	  likeCount: [number]
 	  commentCount: [number]
@@ -149,13 +146,28 @@ API 12: Display A Note
 	  userId: [number]
 	  portrait: [image url]
 	  publishTime: [number/epoch seconds]
-	  image: [image url]
+	  images:
+	    [
+		{
+		  image: url
+		  imageWidth:
+		  imageHeight:
+	    }
+		...
+		]
 	  description: [string]
 	  tags: ["", "", ...]
 	  likeCount: [number]
 	  commentCount: [number]
 	  transactionCount: [number]
-	  ranking: {'criteria1': [number], 'criteria2': [number], ...}
+	  ranking:
+	    [
+		{
+		  name:
+		  rank:
+		}
+		...
+		]
 	  authorRecommanded: {noteId: [number], title: [string], image: [image url], listPrice: [rmb-yuan], discountPrice: [rmb-yuan]}
 	  systemRecommanded:
 	    [
