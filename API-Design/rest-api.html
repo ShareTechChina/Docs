@@ -536,5 +536,22 @@ td:first-child {
 </table>
 </div>
 
+<div>
+<h4>API-25: Get Tag List</h4>
+<table>
+<tr><th colspan="2">Http Request</th></tr>
+<tr><td>Request URL</td><td>/common/tags</td></tr>
+<tr><td>Request Method</td><td>GET</td></tr>
+<tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><th colspan="2">Http Response</th></tr>
+<tr><td>Response Status</td><td>200</td></tr>
+<tr><td>Response Body</td><td class="json">{
+resultCode: [number],
+resultErrorMessage: [string],
+resultValue: [{tagId: [number], tagName: [string]}...]
+}</td></tr>
+</table>
+</div>
+
 </body>
 </html>
