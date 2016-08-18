@@ -29,11 +29,10 @@ td:first-child {
 <tr><td>Request Parameters</td><td>mobile=,password=</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
-<tr><td>Response Header</td><td>X-App-Token</td></tr>
 <tr><td>Response Body</td><td class="json">{
   resultCode: [number],
   resultErrorMessage: [string],
-  resultValues: {loginResultCode: [0|1|2] /* 0. success 1. user not exists 2. password is not correct */}
+  resultValues: {"token": [string], "loginResultCode": [0|1|2] /* 0. success 1. user not exists 2. password is not correct */}
 }</td></tr>
 </table>
 </div>
@@ -47,11 +46,10 @@ td:first-child {
 <tr><td>Request Parameters</td><td>mobile=,code=</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
-<tr><td>Response Headers</td><td>X-App-Token</td></tr>
 <tr><td>Response Body</td><td class="json">{
   resultCode: [number],
   resultErrorMessage: [string],
-  resultValue: {loginSuccess: [true|false]}
+  resultValue: {"token": [string], "loginSuccess": [true|false]}
 }</td></tr>
 </table>
 </div>
