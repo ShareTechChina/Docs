@@ -3,8 +3,7 @@ drop view if exists duoshouji.v_user;
 
 create view duoshouji.v_user as
 select c.mobile, c.user_name, c.password, c.avatar_url, c.avatar_width, c.avatar_height, a.token
-from duoshouji.user c, duoshouji.user_wechat_login a
-where c.id = a.user_id
+from duoshouji.user c left join duoshouji.user_wechat_login a on c.id = a.user_id
 ;
 
 
