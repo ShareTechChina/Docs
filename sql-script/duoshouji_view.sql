@@ -2,8 +2,10 @@
 drop view if exists duoshouji.v_user;
 
 create view duoshouji.v_user as
-select mobile, user_name, password, avatar_url, avatar_width, avatar_height, gender
-from duoshouji.user
+select c.mobile, c.user_name, c.password, c.avatar_url, c.avatar_width, c.avatar_height, c.gender,
+  a.balance, a.note_number, a.order_number, a.follow_number, a.followed_number
+from duoshouji.user c, duoshouji.user_extend a
+where c.mobile = a.user_id
 ;
 
 
