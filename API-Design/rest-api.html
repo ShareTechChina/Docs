@@ -306,6 +306,24 @@ td:first-child {
 </div>
 
 <div>
+<h4>API-12.1: Update Personal Settings</h4>
+<table>
+<tr><th colspan="2">Http Request</th></tr>
+<tr><td>Request URL</td><td>/accounts/${account-id}/settings/profile</td></tr>
+<tr><td>Request Method</td><td>POST</td></tr>
+<tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><td>Request Parameters</td><td>nickname=, gender=</td></tr>
+<tr><th colspan="2">Http Response</th></tr>
+<tr><td>Response Status</td><td>200</td></tr>
+<tr><td>Response Body</td><td class="json">{
+  resultCode: [number],
+  resultErrorMessage: [string],
+  resultValue: TBD
+}</td></tr>
+</table>
+</div>
+
+<div>
 <h4>API-13: Get User Security Information</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
