@@ -2,3 +2,21 @@ insert into duoshouji.tag (name, is_chanel, sort_order) values ('男人装', 1, 
 insert into duoshouji.tag (name, is_chanel, sort_order) values ('美人志', 1, 2);
 insert into duoshouji.tag (name, is_chanel, sort_order) values ('宝贝书', 1, 3);
 insert into duoshouji.tag (name, is_chanel, sort_order) values ('吃货说', 1, 4);
+
+insert into category (name) values ('女装男装');
+insert into category (name) values ('鞋类箱包');
+insert into category (name) values ('母婴用品');
+insert into category (name) values ('护肤彩妆');
+insert into category (name) values ('汇吃美食');
+insert into category (name) values ('珠宝配饰');
+insert into category (name) values ('家装建材');
+insert into category (name) values ('家居家纺');
+insert into category (name) values ('百货市场');
+insert into category (name) values ('汽车用品');
+insert into category (name) values ('手机数码');
+insert into category (name) values ('家电办公');
+insert into category (name) values ('更多服务');
+insert into category (name) values ('生活服务');
+insert into category (name) values ('运动户外');
+insert into category (name) values ('花鸟文娱');
+insert into category (name) values ('农资采购');
