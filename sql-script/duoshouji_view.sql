@@ -13,7 +13,7 @@ where c.mobile = a.user_id
 drop view if exists duoshouji.v_square_notes;
 
 create view duoshouji.v_square_notes as
-select c.id, c.title, a1.rank, c.main_image_url, c.main_image_width, c.main_image_height, c.create_time, a2.comment_number, a2.like_number, a2.order_number,
+select c.id, c.content, c.title, a1.rank, c.main_image_url, c.main_image_width, c.main_image_height, c.create_time, a2.comment_number, a2.like_number, a2.order_number,
   u.mobile, u.user_name, u.avatar_url, u.avatar_width, u.avatar_height, u.gender,
   tag_id1,
   tag_id2,
