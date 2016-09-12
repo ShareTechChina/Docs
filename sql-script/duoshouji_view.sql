@@ -13,7 +13,7 @@ where c.mobile = a.user_id
 drop view if exists duoshouji.v_square_notes;
 
 create view duoshouji.v_square_notes as
-select c.id, c.title, a1.rank, c.image1, c.image1_width, c.image1_height, c.create_time, a2.comment_number, a2.like_number, a2.order_number,
+select c.id, c.title, a1.rank, c.main_image_url, c.main_image_width, c.main_image_height, c.create_time, a2.comment_number, a2.like_number, a2.order_number,
   u.mobile, u.user_name, u.avatar_url, u.avatar_width, u.avatar_height, u.gender,
   tag_id1,
   tag_id2,
@@ -27,4 +27,4 @@ select c.id, c.title, a1.rank, c.image1, c.image1_width, c.image1_height, c.crea
 from duoshouji.note c left join
   (select note_id, avg(value) rank from duoshouji.rating group by note_id) a1 on c.id = a1.note_id left join
   duoshouji.note_extend a2 on c.id = a2.note_id left join
-  duoshouji.user u on c.user_id = u.id
+  duoshouji.user u on c.user_id = u.mobile
