@@ -424,8 +424,8 @@ td:first-child {
   resultValue: 
   [
   {
-    categoryId: [number],
-    categoryName: [string]
+    identifier: [number],
+    name: [string]
   }
   ...
   ]
@@ -449,8 +449,8 @@ td:first-child {
   resultValue: 
   [
   {
-    brandId: [number],
-    brandName: [string]
+    identifier: [number],
+    name: [string]
   }
   ...
   ]
@@ -459,12 +459,13 @@ td:first-child {
 </div>
 
 <div>
-<h4>API-20: Get Commodity Name</h4>
+<h4>API-20: Get Commodity Products</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/common/commodity/${categoryId}/${brandId}/names</td></tr>
+<tr><td>Request URL</td><td>/common/commodity/products</td></tr>
 <tr><td>Request Method</td><td>GET</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><td>Request Parameters</td><td>categoryId=,brandId=</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
 <tr><td>Response Body</td><td class="json">{
@@ -473,10 +474,8 @@ td:first-child {
   resultValue: 
   [
   {
-    productNameId: [number],
-    productName: [string],
-    brandId: [number],
-    categoryId: [number]
+    identifier: [number],
+    name: [string]
   }
   ...
   ]
@@ -497,7 +496,7 @@ td:first-child {
   resultCode: [number],
   resultErrorMessage: [string],
   resultValue: 
-  [{cityId: [number], cityName: [string]}...]
+  [{identifier: [number], name: [string]}...]
 }</td></tr>
 </table>
 </div>
