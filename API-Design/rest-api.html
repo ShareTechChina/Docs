@@ -243,17 +243,18 @@ td:first-child {
     images:
     [
     {
-    image: [image url]
-    imageWidth:
-    imageHeight:
+    url: [image url]
+    width:
+    height:
     }
     ...
     ]
-    description: [string]
-    tags: ["", "", ...]
+    content: [string]
+    tags: [{identifier: [number], name: [string]},...]
     likeCount: [number]
     commentCount: [number]
     transactionCount: [number]
+    rating: [number 0 ~ 10]
     productFeaturesRank:
     [
     {
