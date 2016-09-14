@@ -25,6 +25,6 @@ select c.id, c.content, c.title, a1.rank, c.main_image_url, c.main_image_width, 
   tag_id8,
   tag_id9
 from duoshouji.note c left join
-  (select note_id, avg(value) rank from duoshouji.rating group by note_id) a1 on c.id = a1.note_id left join
+  (select note_id, sum(value) rank from duoshouji.rating group by note_id) a1 on c.id = a1.note_id left join
   duoshouji.note_extend a2 on c.id = a2.note_id left join
   duoshouji.user u on c.user_id = u.mobile
