@@ -280,7 +280,7 @@ td:first-child {
 <tr><th colspan="2">Http Request</th></tr>
 <tr><td>Request URL</td><td>/notes/${noteId}/comment</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
-<tr><td>Request Parameters</td><td>user=,comment=,criteria1=[1~10],criteria2=[1~10],...</td></tr>
+<tr><td>Request Parameters</td><td>comment=,rating=,longitude=,latitude=</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
@@ -625,6 +625,21 @@ resultValue: null
 </table>
 </div>
 
+<div>
+<h4>API-29: Add Like For A Note</h4>
+<table>
+<tr><th colspan="2">Http Request</th></tr>
+<tr><td>Request URL</td><td>/notes/{noteId}/like</td></tr>
+<tr><td>Request Method</td><td>POST</td></tr>
+<tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><th colspan="2">Http Response</th></tr>
+<tr><td>Response Status</td><td>200</td></tr>
+<tr><td>Response Body</td><td class="json">{
+  resultCode: [number],
+  resultErrorMessage: [string]
+}</td></tr>
+</table>
+</div>
 
 </body>
 </html>
