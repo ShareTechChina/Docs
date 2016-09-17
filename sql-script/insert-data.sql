@@ -1,7 +1,7 @@
-insert into duoshouji.tag (tag_id, tag_name, is_chanel) values (1000000000001, '男人装', 1);
-insert into duoshouji.tag (tag_id, tag_name, is_chanel) values (1000000000002, '美人志', 1);
-insert into duoshouji.tag (tag_id, tag_name, is_chanel) values (1000000000003, '宝贝书', 1);
-insert into duoshouji.tag (tag_id, tag_name, is_chanel) values (1000000000004, '吃货说', 1);
+insert into duoshouji.tag (tag_id, tag_name, is_channel) values (1000000000001, '男人装', 1);
+insert into duoshouji.tag (tag_id, tag_name, is_channel) values (1000000000002, '美人志', 1);
+insert into duoshouji.tag (tag_id, tag_name, is_channel) values (1000000000003, '宝贝书', 1);
+insert into duoshouji.tag (tag_id, tag_name, is_channel) values (1000000000004, '吃货说', 1);
 
 insert into duoshouji.category (category_id, category_name, is_tag, is_channel) values (2000000000001, '女装男装', 0, 0);
 insert into duoshouji.category (category_id, category_name, is_tag, is_channel) values (2000000000002, '鞋类箱包', 0, 0);
