@@ -1,0 +1,6 @@
+District: xxxxxxxxxxxx DECIMAL(12,0)
+
+Tag: 1xxxxxxxxxxxx DECIMAL(13,0)
+Category: 2xxxxxxxxxxxx DECIMAL(13,0)
+Brand: 3xxxxxxxxxxxx DECIMAL(13,0)
+Product: 4xxxxxxxxxxxx DECIMAL(13,0)
