@@ -659,6 +659,23 @@ resultValue: null
 </table>
 </div>
 
+<div>
+<h4>API-30: Check Accounts Exist</h4>
+<table>
+<tr><th colspan="2">Http Request</th></tr>
+<tr><td>Request URL</td><td>/accounts/check-exist</td></tr>
+<tr><td>Request Method</td><td>GET</td></tr>
+<tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><td>Request Parameters</td><td>mobile=,mobile=,...,mobile=</td></tr>
+<tr><th colspan="2">Http Response</th></tr>
+<tr><td>Response Status</td><td>200</td></tr>
+<tr><td>Response Body</td><td class="json">{
+  resultCode: [number],
+  resultErrorMessage: [string],
+  resultValues:[{"mobile":[number], "isExists":[true/false]},...]
+}</td></tr>
+</table>
+</div>
 
 </body>
 </html>
