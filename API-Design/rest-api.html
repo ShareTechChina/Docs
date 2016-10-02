@@ -89,10 +89,9 @@ td:first-child {
 <h4>API-05: List Square Notes</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/accounts/{account-id}/pushed/notes</td></tr>
+<tr><td>Request URL</td><td>/notes</td></tr>
 <tr><td>Request Method</td><td>GET</td></tr>
-<tr><td>Request Parameters</td><td>filter=[WATCHED|LOCATION], longitude=, latitude=, tagId=, loadedSize=, pageSize=</td></tr>
-<tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><td>Request Parameters</td><td>timestamp=, accountId=, longitude=, latitude=, tagId=, loadedSize=, pageSize=</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
 <tr><td>Response Body</td><td class="json">{
@@ -193,7 +192,7 @@ td:first-child {
 <h4>API-09: List User Notes</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/accounts/${account-id}/notes</td></tr>
+<tr><td>Request URL</td><td>/accounts/{account-id}/notes</td></tr>
 <tr><td>Request Method</td><td>GET</td></tr>
 <tr><td>Request Parameters</td><td>loadedSize=, pageSize=</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
@@ -264,7 +263,7 @@ td:first-child {
 <h4>API-11: Add Comment For A Note</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/notes/{noteId}/comment</td></tr>
+<tr><td>Request URL</td><td>/accounts/{account-id}/comments/{note-id}</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
 <tr><td>Request Parameters</td><td>comment=,rating=,longitude=,latitude=</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
@@ -383,7 +382,7 @@ td:first-child {
 <h4>API-17: Invite Friends </h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/accounts/{account-id}/invite</td></tr>
+<tr><td>Request URL</td><td>/accounts/{account-id}/invitations</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
 <tr><td>Request Parameters</td><td>mobile=,mobile=,...</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
@@ -493,7 +492,7 @@ td:first-child {
 <h4>API-22: Publish Note</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/account/${account-id}/notes/note</td></tr>
+<tr><td>Request URL</td><td>/account/{account-id}/notes</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
 <tr><td>Request Parameters</td><td>categoryId=,brandId=,productName=,districtId=,price=,title=,tag=,tag=,...,content=,rating=,longitude=,latitude=,...</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
@@ -511,9 +510,9 @@ td:first-child {
 <h4>API-23: Upload Note Image</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/account/${account-id}/notes/${note-id}/image</td></tr>
+<tr><td>Request URL</td><td>/notes/{note-id}/images</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
-<tr><td>Request Parameters</td><td>[image byte stream]</td></tr>
+<tr><td>Request Parameters</td><td>images=[image byte stream]</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
@@ -564,9 +563,10 @@ resultValue: [{identifier: [number], name: [string]}...]
 <h4>API-26: Upload User Portrait</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/accounts/${account-id}/settings/profile/portrait</td></tr>
+<tr><td>Request URL</td><td>/accounts/{account-id}/settings/profile/portrait</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
+<tr><td>Request Parameters</td><td>image=[image byte stream]</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
 <tr><td>Response Body</td><td class="json">{
@@ -598,10 +598,9 @@ resultValue: null
 <h4>API-29: Add Like For A Note</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/accounts/{account-id}/like</td></tr>
+<tr><td>Request URL</td><td>/accounts/{account-id}/likes/{note-id}</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
-<tr><td>Request Parameters</td><td>noteId=</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
 <tr><td>Response Body</td><td class="json">{
@@ -615,10 +614,9 @@ resultValue: null
 <h4>API-29: Follow Another User</h4>
 <table>
 <tr><th colspan="2">Http Request</th></tr>
-<tr><td>Request URL</td><td>/accounts/{account-id}/follow</td></tr>
+<tr><td>Request URL</td><td>/accounts/{account-id}/connections/{followed-accountId}</td></tr>
 <tr><td>Request Method</td><td>POST</td></tr>
 <tr><td>Request Headers</td><td>X-App-Token</td></tr>
-<tr><td>Request Parameters</td><td>userId=</td></tr>
 <tr><th colspan="2">Http Response</th></tr>
 <tr><td>Response Status</td><td>200</td></tr>
 <tr><td>Response Body</td><td class="json">{
